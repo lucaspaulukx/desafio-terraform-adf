@@ -50,7 +50,6 @@ Este desafio tem como objetivo criar uma infraestrutura completa no Azure utiliz
 
 ## Ponto Extra
 - Implementação de monitoramento e alertas dentro da rede privada.
-- Configuração de backup automatizado das pipelines no repositório do Azure DevOps, com armazenamento em ambiente privado.
 
 ## Documentação
 Inclua um **README** detalhado explicando:
