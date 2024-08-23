@@ -1,61 +1,49 @@
-Desafio: Implementação de Azure Data Factory em Ambiente Privado com Ansible, Azure DevOps e Pipelines Automatizadas
+Desafio: Implementação de Azure Data Factory em Ambiente Privado
 Objetivo
-Criar uma infraestrutura no Azure usando Terraform que inclui:
+Este desafio tem como objetivo criar uma infraestrutura completa no Azure utilizando Terraform, garantindo que todo o ambiente seja privado. O desafio envolve a configuração de um Azure Data Factory (ADF) sincronizado com um repositório privado no Azure DevOps, a instalação de um Integration Runtime (IR) em uma máquina virtual Windows utilizando Ansible, e a criação de uma pipeline automatizada no ADF para processar arquivos em um Blob Storage.
 
-Azure Data Factory (ADF): Sincronizado com um repositório privado no Azure DevOps.
-Integration Runtime (IR): Instalado em uma máquina virtual Windows em uma rede privada, usando Ansible.
-Pipeline de Processamento de Arquivos: Criação e edição automatizada de arquivos no Blob Storage.
-Automação Completa: Todo o processo deve ser inicializado e gerenciado via Terraform.
-Ambiente Totalmente Privado: Toda a comunicação deve ocorrer em uma rede privada.
 Requisitos
-Terraform:
-
-Provisionar o Azure Data Factory em uma rede privada.
-Criar uma máquina virtual Windows em uma VNet privada.
-Configurar a integração do ADF com um repositório privado no Azure DevOps.
-Criar um Blob Storage e configurar o ADF para interagir com ele.
-Implementar a pipeline que:
-Crie um arquivo no Blob Storage.
-Edite esse arquivo com o número da matrícula do usuário na Minsait.
-Crie um segundo arquivo com esse valor.
-Configurar uma trigger no ADF para executar essa pipeline às 9h da manhã todos os dias.
-Ansible:
-
-Instalar o Integration Runtime na máquina virtual Windows.
-Configurar o IR para conectar-se ao Azure Data Factory usando redes privadas.
-Azure DevOps:
-
-Configurar um pipeline privado para sincronizar o Azure Data Factory com um repositório Git, acessível apenas dentro da rede privada.
-Automação do deployment das pipelines do ADF, garantindo que a comunicação seja feita de forma privada.
-Passos Detalhados
-Provisionamento da Infraestrutura:
-
-Crie o Azure Data Factory em uma sub-rede privada, sem exposição a endpoints públicos.
-Provisione uma máquina virtual Windows em uma VNet privada, sem IP público.
-Configure uma VNet e sub-redes para garantir que todas as comunicações sejam privadas.
-Crie um Blob Storage na mesma VNet.
-Sincronização com Azure DevOps:
-
-Use Terraform para configurar o Azure Data Factory para sincronizar com um repositório privado no Azure DevOps.
-Configure o pipeline no Azure DevOps para deploy automático, garantindo que todas as operações sejam realizadas dentro da rede privada.
-Pipeline de Processamento de Arquivos:
-
-Use Terraform para criar a pipeline no ADF que:
+Terraform
+Azure Data Factory (ADF): Provisionado em uma rede privada e sincronizado com um repositório privado no Azure DevOps.
+Virtual Machine: Provisione uma máquina virtual Windows em uma VNet privada.
+Blob Storage: Criação e configuração para interação com o ADF.
+Pipeline de Processamento:
+Criação de um arquivo no Blob Storage.
+Edição do arquivo com o número da matrícula do usuário na Minsait.
+Criação de um segundo arquivo com o valor editado.
+Trigger: Configuração de uma trigger para executar a pipeline automaticamente às 9h da manhã todos os dias.
+Ansible
+Integration Runtime (IR): Instalação na máquina virtual Windows e configuração para conectar-se ao ADF utilizando redes privadas.
+Azure DevOps
+Pipeline Privado: Sincronização do ADF com um repositório Git privado e automação do deployment das pipelines do ADF.
+Estrutura do Desafio
+1. Provisionamento da Infraestrutura
+Criação do Azure Data Factory em uma sub-rede privada, sem exposição a endpoints públicos.
+Provisão de uma máquina virtual Windows em uma VNet privada, sem IP público.
+Configuração de uma VNet e sub-redes para garantir comunicação privada.
+Criação de um Blob Storage na VNet.
+2. Sincronização com Azure DevOps
+Configuração do ADF para sincronizar com um repositório privado no Azure DevOps usando Terraform.
+Configuração do pipeline no Azure DevOps para deploy automático, assegurando que as operações ocorram dentro da rede privada.
+3. Pipeline de Processamento de Arquivos
+Criação da pipeline no ADF utilizando Terraform que:
 Cria um arquivo no Blob Storage.
-Edite esse arquivo com o número da matrícula do usuário na Minsait.
-Crie um segundo arquivo com o valor editado no mesmo Blob Storage.
-Configure uma trigger para que essa pipeline seja executada automaticamente às 9h da manhã todos os dias.
-Instalação do Integration Runtime:
-
-Utilize Ansible para conectar-se à máquina virtual Windows usando uma rede privada.
-Instale e configure o Integration Runtime, conectando-o ao Azure Data Factory sem expor endpoints públicos.
-Automação e Inicialização:
-
-Garanta que todo o processo possa ser inicializado a partir de um único comando do Terraform, que provisionará todos os recursos necessários em um ambiente privado e disparará os scripts do Ansible.
-Documentação:
-
-O desafio deve incluir um README detalhado, explicando como inicializar a infraestrutura, verificar a configuração dos componentes e como garantir que todo o tráfego permaneça privado.
-Incluir exemplos de pipelines, scripts de configuração e detalhes sobre o processo de criação e edição dos arquivos no Blob Storage.
+Edita o arquivo com o número da matrícula do usuário na Minsait.
+Cria um segundo arquivo com o valor editado.
+Configuração de uma trigger para execução diária às 9h da manhã.
+4. Instalação do Integration Runtime
+Utilização de Ansible para conectar-se à máquina virtual Windows e instalar o IR.
+Configuração do IR para conectá-lo ao ADF sem expor endpoints públicos.
+5. Automação e Inicialização
+Inicialização completa do processo com um único comando do Terraform, que provisiona os recursos e executa os scripts do Ansible.
 Ponto Extra
-Implementar soluções de monitoramento e alertas dentro da rede privada.
-Este desafio proporciona uma experiência completa de infraestrutura como código e automação, ao mesmo tempo em que garante um ambiente seguro e privado.
+Implementação de monitoramento e alertas dentro da rede privada.
+Configuração de backup automatizado das pipelines no repositório do Azure DevOps, com armazenamento em ambiente privado.
+Documentação
+Inclua um README detalhado explicando:
+
+Como inicializar a infraestrutura.
+Verificar a configuração dos componentes.
+Garantir que todo o tráfego permaneça privado.
+Exemplos de pipelines e scripts de configuração.
+Detalhes sobre o processo de criação e edição dos arquivos no Blob Storage.
