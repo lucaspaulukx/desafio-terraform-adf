@@ -15,8 +15,6 @@ Este desafio tem como objetivo criar uma infraestrutura completa no Azure utiliz
   - Edição do arquivo com o número da matrícula do usuário na Minsait.
   - Criação de um segundo arquivo com o valor editado.
 - **Trigger**: Configuração de uma trigger para executar a pipeline automaticamente às 9h da manhã todos os dias.
-
-### Ansible
 - **Integration Runtime (IR)**: Instalação na máquina virtual Windows e configuração para conectar-se ao ADF utilizando redes privadas.
 
 ### Azure DevOps
